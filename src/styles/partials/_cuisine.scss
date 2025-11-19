@@ -1,0 +1,60 @@
+.cuisine-page {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  .cuisine-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .cuisine-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #e6e6e6;
+    transition: 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      background: #ffefbc;
+    }
+  }
+}
+
+/* ---- RESPONSIVE ---- */
+
+/* Below 350px */
+@media (max-width: 350px) {
+  .cuisine-page h1 { font-size: 1.4rem; }
+  .cuisine-page .cuisine-card { font-size: 0.9rem; padding: 1rem; }
+}
+
+/* Tablet ≥ 600px */
+@media (min-width: 600px) {
+  .cuisine-page .cuisine-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+}
+
+/* Desktop ≥ 900px */
+@media (min-width: 900px) {
+  .cuisine-page h1 { font-size: 2.1rem; }
+}
+
+/* Large Screens ≥ 1280px */
+@media (min-width: 1280px) {
+  .cuisine-page {
+    padding: 3rem 0;
+  }
+}

@@ -1,0 +1,154 @@
+.recipes-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+.recipes-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Previous Search Tags */
+.previous-searches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+  margin-bottom: 1.5rem;
+
+  button {
+    padding: .45rem .9rem;
+    border-radius: 20px;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      opacity: .8;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: .6rem;
+
+  input {
+    padding: .65rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 260px;
+    font-size: .95rem;
+  }
+
+  button {
+    padding: .65rem 1.2rem;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      opacity: .85;
+      transform: scale(1.03);
+    }
+  }
+}
+
+/* ✅ Recipes Grid (Perfect Responsive Layout)*/
+.recipes-container {
+  width: 100%;
+  display: grid;
+  gap: 1.6rem;
+  justify-content: center;
+  margin-top: 2rem;
+
+  /* Default: Mobile First → Single Column */
+  grid-template-columns: repeat(1, minmax(230px, 1fr));
+}
+
+/* ≥ 400px → still 1 card but comfortable */
+@media (min-width: 400px) {
+  .recipes-container {
+    grid-template-columns: repeat(1, minmax(260px, 1fr));
+  }
+}
+
+/* ≥ 600px → 2 cards */
+@media (min-width: 600px) {
+  .recipes-container {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+}
+
+/* ≥ 768px → 3 cards */
+@media (min-width: 768px) {
+  .recipes-container {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
+}
+
+/* ≥ 1024px → 4 cards */
+@media (min-width: 1024px) {
+  .recipes-container {
+    grid-template-columns: repeat(4, minmax(230px, 1fr));
+  }
+}
+
+/* ≥ 1280px → 5 cards (large desktop) */
+@media (min-width: 1280px) {
+  .recipes-container {
+    grid-template-columns: repeat(5, minmax(230px, 1fr));
+  }
+}
+
+/* ✅ Extra Responsive Tweaks */
+@media (max-width: 768px) {
+  .recipes-page {
+    padding: 1.5rem 1rem;
+  }
+
+  .search-bar input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .previous-searches button {
+    font-size: .8rem;
+    padding: .35rem .7rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 330px) {
+  .recipes-container {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+}

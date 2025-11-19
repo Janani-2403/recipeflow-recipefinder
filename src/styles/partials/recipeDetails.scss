@@ -1,0 +1,243 @@
+.recipe-details {
+  max-width: 1280px;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  color: #222;
+
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.4rem;
+  }
+
+  /* Favorite Button */
+  .fav-btn {
+    display: block;
+    margin: 0 auto 2rem;
+    padding: 0.8rem 2rem;
+    background: #ff007f;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      background: #d8006c;
+      transform: translateY(-2px);
+    }
+  }
+
+  /* ==== Recipe Content Desktop (default) ==== */
+  .recipe-content-row {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr 1.3fr;
+    gap: 1.4rem;
+    margin-top: 2rem;
+    align-items: flex-start;
+  }
+
+  .image-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .recipe-img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Cards (Ingredients + Instructions) */
+  .left,
+  .right {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+
+    /* allow natural height (no scrollbars) */
+    overflow: visible;
+    height: auto;
+    max-height: none;
+    padding-right: 0.9rem; /* keeps a little inner spacing for text */
+  }
+
+  h3 {
+    border-left: 4px solid #ff007f;
+    padding-left: 0.6rem;
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  ul li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #eee;
+    color: #444;
+    font-size: 0.95rem;
+  }
+
+  .right p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  /* YOUTUBE BTN */
+  .video-btn {
+    text-align: center;
+    margin-top: 2.4rem;
+
+    a {
+      padding: 0.75rem 1.8rem;
+      background: #ff007f;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+
+      &:hover {
+        background: #d8006c;
+      }
+    }
+  }
+
+  /* Back Button */
+  .back-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.6rem 1.4rem;
+    background: #ff007f;
+    color: #fff;
+    border-radius: 22px;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      background: #d8006c;
+    }
+  }
+}
+
+/*==========================================
+   Large Screens  (≥1280px)
+   Keep layout, but do NOT force heights or overflow
+==========================================*/
+@media (min-width: 1280px) {
+  .recipe-details {
+    h1 {
+      font-size: 25px;
+    }
+
+    /* Keep natural height on large screens */
+    .left,
+    .right {
+      height: auto;
+      max-height: none;
+      overflow: visible;
+    }
+  }
+}
+
+/*==========================================
+   Tablets (700px – 1279px)
+   Image on top + two columns
+==========================================*/
+@media (max-width: 1279px) and (min-width: 700px) {
+  .recipe-details {
+    h1 {
+      font-size: 22px;
+    }
+
+    .recipe-content-row {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .image-box {
+      grid-column: span 2;
+    }
+
+    /* Natural heights for card columns on tablets */
+    .left,
+    .right {
+      height: auto;
+      max-height: none;
+      overflow: visible;
+    }
+  }
+}
+
+/*==========================================
+   Mobile (below 700px)
+   Stack image, ingredients, instructions
+==========================================*/
+@media (max-width: 700px) {
+  .recipe-details {
+    h1 {
+      font-size: 20px;
+    }
+
+    .recipe-content-row {
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+    }
+
+    .recipe-img {
+      max-width: 65%;
+      margin: 0 auto;
+    }
+
+    .right {
+      /* variable content — let it flow naturally */
+      max-height: unset;
+      overflow: visible;
+    }
+  }
+}
+
+/*==========================================
+   Very Small Screens (below 300px)
+==========================================*/
+@media (max-width: 300px) {
+  .recipe-details {
+    padding: 0.6rem;
+
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+
+/* Collapse Text */
+.collapse-text {
+  max-height: 240px;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.collapse-text.expanded {
+  max-height: 3000px; /* allows full expansion */
+}
+
+/* Show More / Show Less Button */
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #ff007f;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  font-size: 0.92rem;
+  padding: 0;
+  transition: 0.2s;
+
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+  }
+}

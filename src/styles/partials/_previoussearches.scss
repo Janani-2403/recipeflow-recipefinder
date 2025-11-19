@@ -1,0 +1,126 @@
+.recipes-page {
+  padding: 2rem 1.5rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===== HEADER ===== */
+.recipes-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+}
+
+/* ===== PREVIOUS SEARCH TAGS ===== */
+.previous-searches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+
+  button {
+    background: #ff016f;
+    border: none;
+    padding: .4rem .9rem;
+    border-radius: 20px;
+    font-size: .85rem;
+    cursor: pointer;
+    transition: background .3s ease;
+
+    &:hover {
+      background: #ff007f;
+      color: #fff;
+    }
+  }
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 1rem;
+
+  input {
+    width: 300px;
+    padding: .55rem .9rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: .9rem;
+  }
+
+  button {
+    background: #ff007f;
+    color: #fff;
+    border: none;
+    padding: .55rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: .9rem;
+    transition: background .3s ease;
+
+    &:hover {
+      background: #d8006c;
+    }
+  }
+}
+
+/* ===== RECIPES GRID ===== */
+.recipes-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  justify-items: center;
+  margin-top: 2rem;
+
+  .loading,
+  .no-recipes {
+    grid-column: span 3;
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+  }
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Tablets <= 900px */
+@media (max-width: 900px) {
+  .recipes-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile <= 600px */
+@media (max-width: 600px) {
+
+  .previous-searches button {
+    font-size: .78rem;
+    padding: .35rem .8rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      width: 100%;
+      max-width: 360px;
+    }
+
+    button {
+      width: 100%;
+      max-width: 360px;
+    }
+  }
+
+  .recipes-container {
+    grid-template-columns: 1fr;
+  }
+}

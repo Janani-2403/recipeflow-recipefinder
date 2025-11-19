@@ -1,0 +1,125 @@
+.section.improve-skills {
+  .col.img {
+    img {
+      width: 90%;
+    }
+  }
+
+  .col.typography {
+    padding-left: 1em;
+
+    .skill-item {
+      border-left: .2em solid var(--primary-color);
+      margin-bottom: .5em;
+      padding: .1em 0 .1em .5em;
+      color: var(--text-light);
+      font-weight: bold;
+      transform: translateX(100%);
+      opacity: 0;
+      animation: getAnimationDuration(.3s) slideInRight forwards;
+
+      @for $i from 2 through 8 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * .1}s;
+        }
+      }
+    }
+
+    .btn {
+      margin-top: .75em;
+    }
+  }
+}
+
+/* For screens 360px and below */
+@media screen and (max-width: 360px) {
+
+  .section.improve-skills {
+    flex-direction: column;        /* Stack image + text */
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    gap: 1.8rem;
+  }
+
+  .section.improve-skills .col.img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .section.improve-skills .col.img img {
+    width: 100%;
+    max-width: 260px;              /* Same feel as hero section image */
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .section.improve-skills .col.typography {
+    width: 100%;
+    padding-left: 0 !important;
+  }
+
+  .section.improve-skills .col.typography h1,
+  .section.improve-skills .col.typography h2 {
+    text-align: center;
+  }
+
+  .section.improve-skills .skill-item {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .section.improve-skills .btn {
+    margin-top: 1.2rem;
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 1rem;
+  }
+}
+
+/* Common mobile layout for Hero & Improve Skills */
+@media screen and (max-width: 600px) {
+  .section {
+    flex-direction: column;        /* Stack columns */
+    text-align: center;            /* Center text */
+    align-items: center;           /* Center content */
+    gap: 1.8em;                    /* Space between items */
+  }
+
+  .section .col {
+    width: 100%;
+    padding: 0;                    /* Remove extra padding */
+  }
+
+  .section .col.img img {
+    width: 100%;
+    max-width: 320px;              /* Helps avoid giant images */
+    margin: 0 auto;
+    display: block;
+  }
+
+  .section .col.typography {
+    padding-left: 0 !important;    /* Remove left spacing */
+  }
+
+  .section .btn {
+    margin-top: 1.5em;
+  }
+}
+
+/* Hide pink border-left for mobile screens */
+@media (max-width: 600px) {
+  .skill-item {
+    border-left: none !important;
+    padding-left: 0 !important; /* remove extra left space */
+  }
+}
+
+@media (max-width: 360px) {
+  .skill-item {
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
+}

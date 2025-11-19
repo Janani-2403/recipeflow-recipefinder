@@ -1,0 +1,190 @@
+.favorites-page {
+  max-width: 1300px;
+  margin: 2.5rem auto;
+  padding: 1rem 1.5rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 1.4rem;
+    color: #222;
+  }
+
+  .no-fav {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+
+    a {
+      color: #ff007f;
+      text-decoration: underline;
+
+      &:hover {
+        color: #d8006c;
+      }
+    }
+  }
+}
+
+/* ==== GRID ==== */
+.favorites-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2.2rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.2rem;
+}
+
+/* ==== CARD ITEM ==== */
+.favorite-item {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+  padding: 1.4rem;
+  text-align: center;
+  transition: 0.25s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+  }
+
+  h4 {
+    margin: 0.8rem 0 1.3rem;
+    font-size: 1.25rem;
+    color: #333;
+  }
+}
+
+/* ==== BUTTON SECTION ==== */
+.fav-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+/* Shared Button Base */
+.view-btn,
+.remove-btn {
+  flex: 1;
+  padding: 0.7rem 0;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  min-width: 110px;
+  border: none;
+}
+
+.remove-btn{
+  height: 40px;
+  margin-top: -5px;
+}
+
+/* View Recipe */
+.view-btn {
+  background: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  margin-top: -5px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+/* Remove */
+.remove-btn {
+  background: var(--primary-color);
+  color: #fff;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+/* ===================================
+   📱 RESPONSIVE DESIGN
+=================================== */
+
+/* ≥1280px */
+@media (min-width: 1280px) {
+  .favorites-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 1024px - 1279px */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .favorites-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 768px - 1023px */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .favorites-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 600px - 767px */
+@media (max-width: 767px) {
+  .favorites-page h2 {
+    font-size: 1.9rem;
+  }
+
+  .favorites-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 400px - 599px */
+@media (max-width: 599px) {
+  .favorites-list {
+    grid-template-columns: 1fr;
+  }
+
+  .favorite-item img {
+    max-width: 90%;
+    margin: 0 auto 1rem;
+  }
+
+  .fav-actions {
+    flex-direction: column;
+  }
+
+  .view-btn,
+  .remove-btn {
+    width: 100%;
+  }
+}
+
+/* <300px */
+@media (max-width: 300px) {
+  .favorites-page {
+    padding: 0.5rem;
+  }
+
+  .favorites-page h2 {
+    font-size: 1.45rem;
+  }
+
+  .favorite-item {
+    padding: 0.9rem;
+  }
+
+  .view-btn,
+  .remove-btn {
+    font-size: 0.85rem;
+    padding: 0.55rem 0.7rem;
+  }
+}
