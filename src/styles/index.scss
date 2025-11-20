@@ -9,6 +9,11 @@
     --animation-speed: 1;
 }
 
+/* Prevent ANY horizontal scrolling */
+html, body {
+  overflow-x: hidden !important;
+}
+
 
 @function getAnimationDuration($duration: number){
    @return calc($duration * var(--animation-speed));
